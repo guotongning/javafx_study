@@ -1,6 +1,7 @@
 module com.ning.fx.study.javafx_study {
     requires javafx.controls;
     requires javafx.fxml;
+    requires org.apache.commons.io;
 
 
     opens com.ning.fx.study.javafx_study to javafx.fxml;

@@ -8,13 +8,15 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
+import javafx.scene.image.Image;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
+import java.io.InputStream;
 
 /**
  * form表单 hello world
@@ -59,10 +61,12 @@ public class HelloForm extends Application {
         hBox.setAlignment(Pos.BOTTOM_RIGHT);
         hBox.getChildren().add(btn);
         pane.add(hBox, 1, 4);
-
         Scene scene = new Scene(pane, 1280, 720);
         stage.setScene(scene);
-
+        InputStream is = this.getClass().getClassLoader().getResourceAsStream("background.png");
+        assert is != null;
+        BackgroundImage image = new BackgroundImage(new Image(is), BackgroundRepeat.ROUND, BackgroundRepeat.ROUND, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
+        pane.setBackground(new Background(image));
         stage.setTitle("JavaFX Welcome");
         stage.show();
     }
